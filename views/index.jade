@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form
+    label(for="url", placeholder="Put your url")
+    input(name="url", type='text, placeholder="Put URL here.')
+    button#submitUrl Submit
+  #checkTable
