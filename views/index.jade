@@ -1,10 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  form
-    label(for="url", placeholder="Put your url")
-    input(name="url", type='text, placeholder="Put URL here.')
-    button#submitUrl Submit
-  #checkTable
+    #resultPage(data-ng-controller="ResultPageCtrl")
+        .container
+            h1 Monitoring page
+            form
+                label(for="url", placeholder="Put your url")
+                input(name="url", type='text, placeholder="Put URL here.')
+                button.btn#submitUrl Submit
+
+            p URL = {{ hitUrl }}
+            table.table.table-borderred#checkTable
+                thead
+                    tr
+                        th URL
+                        th Result
+                tbody
+                    tr(data-ng-repeat="ret in rets")
+                        td {{ret.hitUrl}}
+                        td {{ret.result}}
